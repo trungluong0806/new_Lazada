@@ -1,0 +1,46 @@
+<!-- RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author: Luong Thanh Trung, Lee Gayeong, Pham Hieu Dat, Le Dang Quang, Nguyen Huynh Trieu Thinh
+  ID: Your student ids: S3679813, s3891958, s3979760, s3977794, s3977756
+  Acknowledgement: Acknowledgement: the images used here were borrowed from other webpages. Their links could be found in the report  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6f8d1d8e9d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+    <title>Login page</title>
+</head>
+<body>
+    <div class="center">
+        <h1>LOGIN PAGE</h1>
+        <form method="post" action="http://localhost:3500">
+            <div>
+                <label for="action">Log in as</label>
+                <select name="action" id="action">
+                    <option value="Customer">Customer</option>
+                    <option value="Vendor">Vendor</option>
+                    <option value="Shipper">Shipper</option>
+                </select>
+            </div>
+            <div class="input_info">
+                <input type="text" name="username" id="username" required>
+                <label for = "username">🧑 Username</label>
+            </div>
+            <div class="input_info">
+                <input id = "password" type="password" name="password" required>
+                <label for = "password">🔒 Password</label>
+            </div>
+            <div class="create">Don't have an account yet? <a href="/register">Register here</a></div>
+            <div class="center_login">
+                <input class = "login" type="submit" value="Sign in">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

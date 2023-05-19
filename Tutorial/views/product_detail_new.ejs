@@ -1,0 +1,240 @@
+<!-- RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author: Luong Thanh Trung, Lee Gayeong, Pham Hieu Dat, Le Dang Quang, Nguyen Huynh Trieu Thinh
+  ID: Your student ids: S3679813, s3891958, s3979760, s3977794, s3977756
+  Acknowledgement: Acknowledgement: the images used here were borrowed from other webpages. Their links could be found in the report  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="/css/product_detail_new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/6f8d1d8e9d.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6f8d1d8e9d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav id="vertical_navigation">
+        <div class="category">Household Appliances</div>
+                    <div class="category">Electronics</div>
+                    <div class="category">Fashion</div>
+                    <div class="category">For Kids</div>
+                    <div class="category">Groceries</div>
+                    <div class="category">Sport</div>
+                    <div class="category">Automotives</div>
+                    <div class="category">Education</div>
+                    <div class="category">Entertainment</div>
+                    <div class="category">Digital</div>
+                    <div class="category">Adults</div>
+                    <button id="Close">Close</button>
+    </nav>
+    <div id="overlay"></div>
+    <header id="logo_and_search">
+        <div id="permanent_component">
+            <div id="logo_container">
+                  <div id="logo">
+                    <img  src="photo/random-logo-png-transparent.png" alt="">
+                  </div>
+                <div id="social_media">
+                    <div class="social_media"><img class="media_icon" src="/photo/facebook.png" alt=""></div>
+                    <div class="social_media"><img class="media_icon" src="/photo/instagram-symbol.png" alt=""></div>
+                    <div class="social_media"><img class="media_icon" src="/photo/pinterest.png" alt=""></div>
+                </div>
+            </div>
+            <div id="search_bar_container">
+                <form id="search_function" action="/search" method="GET">
+                    <input name="search_bar" id="search_bar" type="text">
+                    <div id="search_container"><input id="search_submit" type="image" src="photo/search-interface-symbol.png"></div>
+                </form>
+            </div>
+        </div>
+        <div id="collapsed_content">
+            <div id="search_bar_container_2">
+                <form id="search_function" action="/search" method="GET">
+                    <input name="search_bar" id="search_bar" type="text">
+                    <div id="search_container"><input id="search_submit" type="image" src="photo/search-interface-symbol.png"></div>
+                </form>
+            </div>
+        </div>
+        
+        
+    </header>
+
+    <main>
+        <content id="main_container">
+            <section id="selection">
+                <div id="image_selection">
+                    <div id="image_navigation">
+                        <div class="image"><img id="main" class="secondary_image portrait" src="<%= result.imagePath %>" alt="portrait"></div>
+                        <div class="image"><img class="secondary_image landscape" src="<%= result.image1Path %>"" alt="landscape"></div>
+                        <div class="image"><img class="secondary_image landscape" src="<%= result.image2Path %>"" alt="landscape"></div>
+                        <div class="image"><img class="secondary_image landscape" src="<%= result.image1Path %>"" alt="landscape"></div>
+                    </div>
+                    <div id="big_image" style="display: flex; align-items: center;">
+                        <img id="main_image" src="<%= result.imagePath %>" alt="">
+                    </div>
+                    
+                </div>
+                <div id="features_selection">
+                    <div id="product_title">
+                        <h2 id="name" class="<%=result._id %>"><%= result.productName %></h2>
+                        <span> Location: <span><%= result.productLocation %></span> </span>
+                        <div id="Product_rating">
+                            <div>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <div>
+                                <div class="ratingDetail">
+                                    <span class="number" id="important">125</span>
+                                    <span class="detail">Rated</span>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                    <div id="price_formats">
+                        <h2 id="price"><%= result.productPrice %></h2>
+                        <div id="variant_selection">
+                            <button class="variant">Variant 1</button >
+                            <button class="variant">Variant 2</button>
+                            <button class="variant">Variant 3</button>
+                        </div>
+                    </div>
+                    <div id="check_availability">
+                        <div class="quantity">
+                            <label class="quantityName"><p>Quantity</p><label>
+                            <div id="specific_inventory">
+                                <input id="quantity_selector" type="number" value="1">
+                                <div class="quantityAvaiable"><span id="inventory"><%= result.Inventory%></span> <span>items are avaiable</span> </div>
+                            </div>
+                            
+                        </div> 
+                        <div class="grid" id="buy_button" >
+                            <button>Buy Now</button>
+                            <button id="addCart" class="addtocart">Add to Cart</button>
+                            <button>Add to Wish list</button>
+                            
+                        </div>
+                        
+                        
+                    </div> 
+                </div>
+            </section>
+
+            <div class="productDetail">
+                <div class="detailHeading">
+                    <h1>Product Description</h1>
+                </div>
+                <div class="detailDescription">
+                    <table>
+                        <tr>
+                            <th>Country of origin</th>
+                            <td><%= result.productCFO %></td>
+                        </tr>
+                        <tr>
+                            <th>Brand</th>
+                            <td><%= result.productBrand %></td>
+                        </tr>
+                    </table>
+                    <div class="detailMoreInformation">
+                        <p>
+                            <%= result.productDescription %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+           
+        </content>
+
+
+
+
+
+
+
+
+
+
+    </main>
+    <footer>
+        <div class="subscriptionDiv">
+            <h4>Sign up for more information?</h4>
+            <form action="">
+                <div class="subscriptionDivInput">
+                    <input type="email" placeholder="Enter your email address here...">
+                    <button type="submit"><i class="fa-solid fa-envelope"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="basicInformation">
+            <div class="detail">
+                <br>
+                Information gonna display here
+            </div>
+            <div class="detail">
+
+                <h3>About Us</h3>
+                <a href="">About Swanglee Bookstore</a>
+                <a href="">Privacy Policy</a>
+                <a href="">Payment Methods</a>
+
+            </div>
+            <div class="detail">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Email: trungluong0806@gmail.com</li>
+                    <li>Phone: 0909173660</li>
+                    <li>Address: <address>819 488 Swanston 3053 Carlton</address> </li>
+                </ul>
+                
+                
+            </div>
+        </div>
+        <div class="copyRight">
+            <p>Page by Copyright@ by GroupName?</p>
+        </div>
+    </footer>
+
+    <div id="controller">
+        <div class="controller_icon" id="cart">
+            <div id="number_in_cart"></div>
+            <a href="http://localhost:3500">
+                <img class="icon"  src="/photo/shopping-cart.png" alt="">
+            </a>
+        </div>
+        <div class="controller_icon">
+            <a href="http://localhost:3500">
+                <img class="icon"  src="/photo/shopping-cart.png" alt="">
+            </a>
+        </div>
+        <div class="controller_icon">
+            <img class="icon" src="/photo/settings.png" alt="">
+        </div>
+        <div class="controller_icon" id="menu_icon_box">
+            <img class="icon" id="menu_icon" src="/photo/menu-bar.png" alt="">
+        </div>
+        <div class="controller_icon" id="search_icon_box">
+            <img class="icon" id="search_icon" src="/photo/search-interface-symbol.png" alt="">
+        </div>
+    </div>
+    <script src="/js/product_detail.js"></script>
+    </body>

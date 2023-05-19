@@ -1,0 +1,49 @@
+<!-- RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author: Luong Thanh Trung, Lee Gayeong, Pham Hieu Dat, Le Dang Quang, Nguyen Huynh Trieu Thinh
+  ID: Your student ids: S3679813, s3891958, s3979760, s3977794, s3977756
+  Acknowledgement: Acknowledgement: the images used here were borrowed from other webpages. Their links could be found in the report  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Product</title>
+    <link rel="stylesheet" href="/css/add.css">
+    <script src="https://kit.fontawesome.com/6f8d1d8e9d.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <h1>Add New Product</h1>
+    <form method="POST" action="/viewmyproduct" enctype="multipart/form-data">
+      <label>Product Name:</label>
+      <input id="productName" type="text" name="product_name" minlength="10" maxlength="20" required><br><br>
+      <label>Product Price:</label>
+      <input type="number" name="product_price" min="0" required><br><br>
+      <label>Product Brand:</label>
+      <input name="product_brand" required>
+        
+  <br><br>
+
+      <label>Product Location:</label>
+      <input name="product_location" required>
+  <br><br>
+
+      <label>Product CFO:</label>
+      <input name="CFO" required>
+      <br><br>
+
+      <label>Product Description:</label>
+      <textarea name="product_description" maxlength="500" required></textarea><br><br>
+
+      <label>Image:</label>
+      <input id="uploader" type="file" name="image" multiple required><br><br>
+      <p id="error"></p>
+      <input id="submit" type="submit" value="Add">
+    </form>
+    <script src="/js/add.js"></script>
+  </body>
+</html>

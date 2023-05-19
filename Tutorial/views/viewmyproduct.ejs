@@ -1,0 +1,195 @@
+<!-- RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author: Luong Thanh Trung, Lee Gayeong, Pham Hieu Dat, Le Dang Quang, Nguyen Huynh Trieu Thinh
+  ID: Your student ids: S3679813, s3891958, s3979760, s3977794, s3977756
+  Acknowledgement: Acknowledgement: the images used here were borrowed from other webpages. Their links could be found in the report  -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Products</title>
+  <link rel="stylesheet" href="/css/viewmyproduct.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6f8d1d8e9d.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header id="logo_and_search">
+    <div id="permanent_component">
+      <div id="logo_container">
+            <div id="logo">
+               <img  src="photo/random-logo-png-transparent.png" alt="">
+            </div>
+          <div id="social_media">
+              <div class="social_media"><img class="media_icon" src="/photo/facebook.png" alt=""></div>
+              <div class="social_media"><img class="media_icon" src="/photo/instagram-symbol.png" alt=""></div>
+              <div class="social_media"><img class="media_icon" src="/photo/pinterest.png" alt=""></div>
+          </div>
+      </div>
+  </div>
+  </header>
+  <main>
+    <div id="form_container">
+      <form action="/viewmyproduct" id="product_update" method="POST" enctype="multipart/form-data">
+        <div>
+          <h1>My Product</h1>
+        </div>
+        <div id="input_container">
+          <div>
+            <label for="action">Action</label>
+            <select name="action" id="action">
+              <option value="create">Create</option>
+              <option value="update">Update</option>
+              <option value="delete">Delete</option>
+            </select>
+          </div>
+          <div id="product_id_cotainer">
+            <label for="product_id">ID</label>
+            <input type="text" name="product_id" id="product_id">
+          </div>
+          <div>
+            <label for="product_name">Name</label>
+            <input type="text" name="product_name" id="product_name" maxlength="15" minlength="10" placeholder="Between 10 and 15 characters only">
+          </div>
+          <div id="vid">
+            <label for="Vendor_id">Vendor Id</label>
+            <input type="text" name="Vendor_id" id="Vendor_id">
+          </div>
+          <div>
+            <label for="product_price">Price</label>
+            <input type="number" name="product_price" id="product_price" min="0">
+          </div>
+          <div>
+            <label for="product_brand">Brand</label>
+            <input type="text" name="product_brand" id="product_brand">
+          </div>
+          <div>
+            <label for="product_location">Location</label>
+            <input type="text" name="product_location" id="product_location">
+          </div>
+          <div>
+            <label for="CFO">Origin</label>
+            <input type="text" name="CFO" id="CFO"> 
+          </div>
+          <div>
+            <label for="product_description">Description</label>
+            <textarea name="product_description" cols="30" rows="10" id="product_description" maxlength="500"></textarea>
+          </div>
+          <div>
+            <label for="inventory">Inventory</label>
+            <input type="number" name="inventory" id="inventory" value="0" >
+          </div>
+          <div id="image_upload">
+            <label>Main image:</label>
+            <input id="uploader" type="file" name="image" multiple><br><br>
+          </div>
+          <p id="error">"Exactly 4 images are allowed"</p>
+          <div id="submit_button">
+            <input type="submit" value="Save" >
+          </div>
+
+        </div>
+        
+        
+       
+        
+        
+        
+        
+      </form> 
+    </div>
+  
+    <table>
+      <tr>
+        <th>Name</th>
+        <th id="id_heading">Id</th>
+        <th>Image</th>
+        <th>Inventory</th>
+      </tr>
+      <% products.forEach((product) => { %>
+          <tr id="rows">
+            <td id="pname"><%= product.productName %></td>
+            <td id="pid" ><%= product._id %></td>
+            <td><img src="../<%= product.imagePath %>" width="100"></td>
+            <td id="pprice" class="display_none"><%= product.productPrice %></td>
+            
+            <td id="pbrand" class="display_none"><%= product.productBrand %></td>
+            <td id="plocation" class="display_none"><%= product.productLocation %></td>
+            <td id="pvid" class="display_none"><%= product.vendorId %></td>
+            <td id="pCFO" class="display_none"><%= product.productCFO %></td>
+            <td id="pinventory"><%= product.Inventory %></td>
+            <td id="pDescription" class="display_none"><%= product.productDescription %></td> 
+            
+          </tr>
+      
+      <% }); %>
+    </table>
+  </main>
+  <footer>
+    <div class="subscriptionDiv">
+        <h4>Sign up for more information?</h4>
+        <form action="">
+            <div class="subscriptionDivInput">
+                <input type="email" placeholder="Enter your email address here...">
+                <button type="submit"><i class="fa-solid fa-envelope"></i></button>
+            </div>
+        </form>
+    </div>
+    <div class="basicInformation">
+        <div class="detail">
+            <br>
+            Information gonna display here
+        </div>
+        <div class="detail">
+
+            <h3>About Us</h3>
+            <a href="">About Us</a>
+            <a href="">Privacy Policy</a>
+            <a href="">Payment Methods</a>
+
+        </div>
+        <div class="detail">
+            <h3>Contact Us</h3>
+            <ul>
+                <li>Email: trungluong0806@gmail.com</li>
+                <li>Phone: 0909173660</li>
+                <li>Address: <address>819 488 Swanston 3053 Carlton</address> </li>
+            </ul>
+            
+            
+        </div>
+    </div>
+    <div class="copyRight">
+        <p>Page by Copyright@ by GroupName?</p>
+    </div>
+</footer>
+  
+  <div id="controller">
+    <div class="controller_icon">
+        <a href="http://localhost:3500/myVendorAccount">
+          <img class="icon" src="/photo/user.png" alt="">
+        </a>
+        
+    </div>
+    <div class="controller_icon">
+        <img class="icon" src="/photo/settings.png" alt="">
+    </div>
+
+    
+  </div>
+  <script src="/js/view_my_product.js"></script>
+  
+  
+    
+</body>
+</html>

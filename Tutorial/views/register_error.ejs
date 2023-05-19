@@ -1,0 +1,165 @@
+<!-- RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author: Luong Thanh Trung, Lee Gayeong, Pham Hieu Dat, Le Dang Quang, Nguyen Huynh Trieu Thinh
+  ID: Your student ids: S3679813, s3891958, s3979760, s3977794, s3977756
+  Acknowledgement: Acknowledgement: the images used here were borrowed from other webpages. Their links could be found in the report  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/registration.css">
+    <script src="https://kit.fontawesome.com/6f8d1d8e9d.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Register page</title>
+</head>
+<body>
+    <header>
+        <header id="logo_and_search">
+            <div id="permanent_component">
+              <div id="logo_container">
+                  <div id="logo">
+                    <img  src="photo/random-logo-png-transparent.png" alt="">
+                  </div>
+                  <div id="social_media">
+                      <div class="social_media"><img class="media_icon" src="/photo/facebook.png" alt=""></div>
+                      <div class="social_media"><img class="media_icon" src="/photo/instagram-symbol.png" alt=""></div>
+                      <div class="social_media"><img class="media_icon" src="/photo/pinterest.png" alt=""></div>
+                  </div>
+              </div>
+    
+              
+          </div>
+          </header>
+    </header>
+    <main>
+        <form method="post" action="http://localhost:3500/register" id="registration_form" enctype="multipart/form-data">
+            <div>
+                <h1>Customer Registration Page</h1>
+            </div>
+            <div class="container">
+                <label for="action">Register as: </label>
+                <select name="action" id="action">
+                    <option value="Customer">Customer</option>
+                    <option value="Vendor">Vendor</option>
+                    <option value="Shipper">Shipper</option>
+                </select>
+            </div>
+
+            <div id="general_info">
+                <div class="container">
+                    <label class="label"  for="Full_name">Full Name</label>
+                    <input class="input" type="text" name="Full_name">
+                </div>
+                <div class="container email">
+                    <label for = "email">📧Email</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="container email">
+                    <label for = "address">🏠Address</label>
+                    <input type="text" name="address" id="address">
+                </div>
+                <div class="container input_info">
+                    <label for="phone">📱Phone Number</label>
+                    <input type="number" id="phone" >   
+                    <label class="label" name = "email">📧Email</label>
+                    <input class="input" type="email" name="email">
+                </div>
+                <div class="container email">
+                    <label class="label" name = "address">🏠Address</label>
+                    <input  class="input"  type="text" name="address" id="address">
+                </div>
+                <div class="container input_info">
+                    <label class="label">📱Phone Number</label>
+                    <input  class="input" type="number" name="phone" >   
+                </div>
+                <div class="container input_info">
+
+                    <label for = "username">👦Username</label>
+                    <input type="text" name="username" id="username" onkeydown="checkUsername()">  
+
+                    <label class="label" name = "username">👦Username</label>
+                    <input  class="input" type="text" name="username" id="username" onkeydown="checkUsername()">  
+                </div>
+                <div class="container pass_info">
+                    <label class="label" name = "password">🔐Password</label>
+                    <input  class="input" id = "password" type="password" name="password" onkeyup="checkPassword()">  
+                    <p class='hide-show' onclick="toggle()">Show/Hide</p>
+                </div>
+                
+            </div>
+            
+
+            <!-- shipper specific -->
+            
+            <div class="container" id="shipper_specific">
+                <label for="hub" class="distribution_hub">Distribution hub:</label>
+                <select name="hub" id="hub">
+                    <option value="Ho Chi Minh">Ho Chi Minh</option>
+                    <option value="Ha Noi">Hanoi</option>
+                    <option value="Da Nang">Da Nang</option>
+                    <option value="Nha Trang">Nha Trang</option>
+                    <option value="Binh Duong">Binh Duong</option>
+                  </select>
+            </div>
+
+            <!-- vendor specific -->
+            <div class="container" id="vendor_specific">
+                <div class="input_info">
+                    <label class="label">🏢Business Name</label>
+                    <input  class="input" type="text" name="business" >  
+                </div>
+                <div class="input_info">
+                    <label class="label">📌Business Address</label>
+                    <input  class="input" type="text" name="baddress" id="baddress">  
+                </div>
+                <div class="input_info">
+                    <label class="label" for="National_id">National Id</label>
+                    <input  class="input" type="text" name="National_id" id="National_id">
+                </div>
+
+            </div>
+            <div id="image_upload" class="input_info">
+                <label class="image">Main image:</label>
+                <input type="file" name="image" class="image" required><br><br>
+            </div>
+            <div id="message">
+                <p style="color: red;">
+                    Username already exists. Please try again
+                </p>
+                <p style="text-align: center;">
+                    Already have an account? <a href="/">Log in</a>
+                </p>
+                
+            </div>
+            
+            
+
+            <!-- end -->
+            <div class="container submit">
+                <button id = "register" type="submit">Sign up</button>
+            </div>
+
+            <!-- <span> -->
+
+            </div>
+            <span>
+                <div class="error-display">
+                    <div id="errorPassword"></div>
+                    <div id="error"></div>
+                    <div id="valid"></div>
+                    <div id="valid2"></div>
+                </div>
+            <!-- </span> -->
+            
+            
+        </form>
+    </main>
+        
+    <script src="/js/functions.js">
+    </script>
+</body>
+</html>

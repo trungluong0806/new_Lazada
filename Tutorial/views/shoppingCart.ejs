@@ -1,0 +1,96 @@
+<!-- RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author: Luong Thanh Trung, Lee Gayeong, Pham Hieu Dat, Le Dang Quang, Nguyen Huynh Trieu Thinh
+  ID: Your student ids: S3679813, s3891958, s3979760, s3977794, s3977756
+  Acknowledgement: Acknowledgement: the images used here were borrowed from other webpages. Their links could be found in the report  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6f8d1d8e9d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/shoppingCart.css">
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+    <div class="shoppingCart">
+        <div class="shoppingItems">
+            <div class="itemsHeading">
+                <h1>Shopping Cart</h1>
+                <p id="number_in_cart"><span id="totalItems"></span> items</p>
+            </div>
+            <div class="itemsProductsContainer">
+                <table>
+                </table>
+            </div>      
+            <div class="quickSummary">
+                <div class="inputGiveCode">
+                    <h4>Voucher</h4>
+                    <input type="text" placeholder="Enter your voucher code">
+                </div>        
+                <div class="totalPriceContainer">
+                    <h4>TOTAL PRICE</h4>
+                    <span id="totalMoney"></span>
+                </div>
+            </div>
+                
+        </div>
+        <form action="/shoppingCart" method="post" id="checkout">
+            <div class="informationHeading">
+                <h1>Summary</h1>
+            </div>
+            <div class="informationSummary">
+                <div class="numberOfItems">
+                    <p><span id="totalItems">3</span> items</p>
+                </div>
+                <span id="totalMoney"></span>
+            </div>
+            <div class="informationInput">
+                <div class="inputNameContainer">
+                    <div class="inputName">
+                        <h4>Full Name</h4>
+                        <input type="text" placeholder="Full Name" name="Recipient_Name">
+                    </div>
+
+                </div>
+                <div class="inputPhoneEmailContainer">
+                    <h4>Phone</h4>
+                    <input type="tel" placeholder="Enter phone number here" name="Recipient_phone_number">
+                    <h4>Email</h4>
+                    <input type="email" placeholder="Enter email here" name="Recipient_Address">
+                </div>
+                <div class="inputAddress">
+                    <div class="addressLocation">
+                        <h4>Address</h4>
+                        <input type="text" placeholder="Number/Building/Street No." name="Recipient_Email">
+                    </div>
+                    <div class="addressCity">
+                        <h4>City</h4>
+                        <select name="City" id="City">
+                            <option value="Ha Noi">Ha Noi</option>
+                            <option value="Ho Chi Minh">Ho Chi Minh</option>
+                            <option value="Can Tho">Can Tho</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="inputDisplayNone">
+                    <input type="text">
+                </div>
+            </div>
+
+            <div class="submitButton">
+                <button type="submit" id="checkout">CHECKOUT</button>
+            </div>
+        </form>
+        <div class="backToShop"><a href="/main_page"><span><i class="fa-solid fa-arrow-left"></i>Back to shop</span></a></div>
+    </div>
+    <script src="/js/cart.js"></script>
+</body>
+
+</html>

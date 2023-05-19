@@ -1,0 +1,441 @@
+/* RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author: Luong Thanh Trung, Lee Gayeong, Pham Hieu Dat, Le Dang Quang, Nguyen Huynh Trieu Thinh
+  ID: Your student ids: S3679813, s3891958, s3979760, s3977794, s3977756
+  Acknowledgement: Acknowledgement: the images used here were borrowed from other webpages. Their links could be found in the report */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);;
+    width: 100%;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shoppingCart {
+    position: relative;
+    background: white;
+    width: 80%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    margin: 60px auto;
+}
+
+
+
+/* shoppingItems */
+.shoppingCart .shoppingItems {
+    width: 70%;
+    height: fit-content;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.shoppingCart .shoppingItems .itemsHeading {
+    width: 90%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(163, 157, 157);
+}
+
+.shoppingCart .itemsProductsContainer {
+    width: 90%;
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    background: transparent;
+    width: 0;
+}
+
+.shoppingCart .itemsProductsContainer table {
+    width: 100%;
+}
+
+.shoppingCart .itemsProductsContainer table tr {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(163, 157, 157);
+    overflow: hidden;
+}
+
+
+.shoppingCart #productsImage {
+    width: 15%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: blue;
+}
+
+.shoppingCart td img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shoppingCart #productsTitle {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: hidden;
+    height: 100%;
+    padding-left: 10px;
+}
+
+
+.shoppingCart #productsTitle .productType {
+    width: 100%;
+    max-height: 40px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shoppingCart #productsTitle .productName {
+    width: 100%;
+    max-height: 40px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shoppingCart #productsQuantity {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shoppingCart #productsQuantity span {
+    margin: 0 5px;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgb(163, 157, 157);
+    border-left: 1px solid rgb(163, 157, 157);
+    
+}
+
+.shoppingCart #productsQuantity i {
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.shoppingCart #productsPrice {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.shoppingCart #productsDelete {
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    color: rgb(114, 114, 114);
+}
+
+.shoppingCart #productsDelete i {
+    cursor: pointer;
+}
+
+.shoppingCart .quickSummary{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 89%;
+    margin-top: 15px;
+}
+.shoppingCart .quickSummary h4{
+    font-size: 17px;
+    padding-bottom: 5px;
+}
+.shoppingCart .inputGiveCode{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.shoppingCart .inputGiveCode input{
+    height: 30px;
+    outline: none;
+    padding: 5px;
+}
+
+.shoppingCart .totalPriceContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.remove_item{
+    background: none;
+    border: none;
+}
+/* shoppingItems */
+
+
+
+
+/* form */
+form {
+    width: 30%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 20px;
+}
+
+form .informationHeading {
+    width: 100%;
+    height: 90px;
+    border-bottom: 1px solid rgb(163, 157, 157);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+form .informationSummary {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+form .informationInput {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgb(116, 116, 116);
+}
+
+form .informationInput input {
+    width: 100%;
+    height: 30px;
+    border: 1px solid rgb(116, 116, 116);
+    padding: 5px;
+    text-overflow: ellipsis;
+    margin-bottom: 8px;
+    outline: none;
+}
+
+form .informationInput h4 {
+    margin-bottom: 5px;
+    font-size: 17.7px;
+    color: rgb(54, 54, 54);
+
+}
+
+form .informationInput .inputNameContainer {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+form .inputNameContainer .inputName {
+    width: 100%;
+}
+
+
+form .informationInput .inputPhoneEmailContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+form .inputAddress {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .inputAddress .addressLocation {
+    width: 65%;
+}
+
+form .inputAddress .addressCity {
+    width: 30%;
+}
+
+form .inputAddress .addressCity select {
+    height: 30px;
+    outline: none;
+    width: 100%;
+}
+
+
+form .inputAddress .addressPostalCode {
+    width: 50%;
+}
+
+
+form .informationInput .inputDisplayNone{
+    width: 100%;
+    display: none;
+}
+
+
+form .submitButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding-bottom: 30px;
+}
+
+form .submitButton button {
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(108.5deg, rgba(231, 69, 54, 0.82) 11.2%, rgba(255, 181, 17, 0.82) 68%);
+    color: black;
+    cursor: pointer;
+}
+
+/* form */
+
+/* backtoshop */
+.shoppingCart .backToShop {
+    height: fit-content;
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-size: 15px;
+    font-weight: 300;
+    bottom: 30px;
+    left: 40px;
+}
+
+.shoppingCart .backToShop a {
+    text-decoration: none;
+    color: rgb(114, 114, 114);
+}
+
+
+.shoppingCart .backToShop a:hover {
+    text-decoration: underline;
+}
+
+.shoppingCart .backToShop a:hover i {
+    transform: translateX(-3px);
+}
+
+.shoppingCart .backToShop i {
+    margin-right: 10px;
+    color: rgb(59, 59, 59);
+}
+
+/* backtoshop */
+
+/* Media */
+@media(max-width: 1023px){
+    .shoppingCart{
+        width: 100%;
+    }
+    .shoppingCart .backToShop {
+        left: 30px;
+    }
+
+}
+
+@media (max-width: 767px){
+    .shoppingCart {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .shoppingCart .shoppingItems {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .shoppingCart #productsImage {
+        width: 30%;
+    }
+    .shoppingCart #productsTitle {
+        width: 25%;
+        font-size: 13px;
+        padding-left: 5px;
+    }
+    .shoppingCart #productsQuantity {
+        width: 25%;
+    }
+    .shoppingCart #productsQuantity span{
+        font-size: 14px;
+        height: 15px;
+        width: 25px;
+    }
+    .shoppingCart #productsQuantity i{
+        font-size: 10px;
+    }
+
+    .shoppingCart #productsPrice {
+        width: 15%;
+        font-size: 12px;
+    }
+    .shoppingCart #productsDelete {
+        width: 5%;
+        font-size: 8px;
+    }
+    form{
+        width: 90%;
+        margin: auto;
+    }
+    .shoppingCart .backToShop {
+        top: 15px;
+        left: 20px;
+    }
+
+
+}

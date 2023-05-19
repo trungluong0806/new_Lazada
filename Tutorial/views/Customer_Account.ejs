@@ -1,0 +1,163 @@
+<!-- RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author: Luong Thanh Trung, Lee Gayeong, Pham Hieu Dat, Le Dang Quang, Nguyen Huynh Trieu Thinh
+  ID: Your student ids: S3679813, s3891958, s3979760, s3977794, s3977756
+  Acknowledgement: Acknowledgement: the images used here were borrowed from other webpages. Their links could be found in the report  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/6f8d1d8e9d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/Customer_Account.css">
+</head>
+<body>
+    <header id="logo_and_search">
+        <div id="permanent_component">
+          <div id="logo_container">
+                <div id="logo">
+                    <img  src="photo/random-logo-png-transparent.png" alt="">
+                </div>
+              <div id="social_media">
+                  <div class="social_media"><img class="media_icon" src="/photo/facebook.png" alt=""></div>
+                  <div class="social_media"><img class="media_icon" src="/photo/instagram-symbol.png" alt=""></div>
+                  <div class="social_media"><img class="media_icon" src="/photo/pinterest.png" alt=""></div>
+              </div>
+          </div>
+      </div>
+      </header>
+      <main>
+        <div id="main_container">
+            <div id="container">
+                <div id="side_navigator">
+                    <div class="nav_item img_container">
+                        <div id="img">
+                            <img id="profile_image" src="photo/<%=Users.profileImagePath%>" alt="">
+                        </div>
+                    </div>
+                    <div class="nav_item personal_detail"><h2 id="person"><span>Personal</span><span>Detail</span></h2></div>
+                    <div class="nav_item myOrder"><h2 id="Order_title"><span>My </span><span>Order</span></h2></div>
+                </div>
+                <div id="content">
+                    <div id="Personal_info">
+                        <form action="/myCustomerAccount" method="POST" enctype="multipart/form-data">
+                            <div id="name_field">
+                                <div>
+                                    <label for="username">Username</label>
+                                    <input id="username" type="text" name="username" value="<%=Users.username %>">
+                                </div>
+                                <div>
+                                    <label for="fullname">Fullname</label>
+                                    <input id="fullname" type="text" name="fullname" value="<%=Users.Full_name %>">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="email">Email</label>
+                                <input class="other_than_name" type="text" name="email" value="<%=Users.email %>">
+                            </div>
+                            <div>
+                                <label for="phone">Phone</label>
+                                <input class="other_than_name"  type="text" name="phone" value="<%= Users.Phone_Number %>">
+                            </div>
+                            <div>
+                                <label for="address">Address</label>
+                                <input class="other_than_name" type="text" name="address" value="<%= Users.address %>">
+                            </div>
+                            <div>
+                                <input name="image" type="file">
+                            </div>
+                            <div>
+                                <input type="submit">
+                            </div>
+                        </form>
+                    </div>
+                    <div id="my_Order">
+                        <table>
+                            <tr>
+                                <th>Order Number</th>
+                                <th class="total">Total</th>
+                                <th>Date Created</th>
+                            </tr>
+                            <% for (let i=0; i<Orders.length; i++) {%>
+                                <tr>
+                                    <td><%=Orders[i].Customer_id%></td>
+                                    <td id="total"><%=Orders[i].totalPrice%></td>
+                                    <td><%=Orders[i].Date_Created%></td> 
+                                </tr>
+                                
+                            <%}%>
+                           
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="subscriptionDiv">
+            <h4>Sign up for more information?</h4>
+            <form action="">
+                <div class="subscriptionDivInput">
+                    <input type="email" placeholder="Enter your email address here...">
+                    <button type="submit"><i class="fa-solid fa-envelope"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="basicInformation">
+            <div class="detail">
+                <br>
+                Information gonna display here
+            </div>
+            <div class="detail">
+
+                <h3>About Us</h3>
+                <a href="">About Us</a>
+                <a href="">Privacy Policy</a>
+                <a href="">Payment Methods</a>
+
+            </div>
+            <div class="detail">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Email: trungluong0806@gmail.com</li>
+                    <li>Phone: 0909173660</li>
+                    <li>Address: <address>819 488 Swanston 3053 Carlton</address> </li>
+                </ul>
+                
+                
+            </div>
+        </div>
+        <div class="copyRight">
+            <p>Page by Copyright@ by GroupName?</p>
+        </div>
+    </footer>
+
+      <div id="controller">
+        <div class="controller_icon" id="cart">
+            <a href='http://localhost:3500/main_page'>
+                
+                <img class="icon"  src="/photo/home.png" alt="">
+            </a>
+        </div>
+        <div class="controller_icon">
+            <a href="http://localhost:3500">
+                <img class="icon" id="log_out" src="/photo/logout.png" alt="">
+            </a>
+            
+        </div>
+        <div class="controller_icon">
+            <img class="icon" src="/photo/settings.png" alt="">
+        </div>
+
+
+        
+    </div>
+      <script src="/js/Customer_Account.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!-- RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author: Luong Thanh Trung, Lee Gayeong, Pham Hieu Dat, Le Dang Quang, Nguyen Huynh Trieu Thinh
+  ID: Your student ids: S3679813, s3891958, s3979760, s3977794, s3977756
+  Acknowledgement: Acknowledgement: the images used here were borrowed from other webpages. Their links could be found in the report  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/shipper_administration.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/6f8d1d8e9d.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="logo_and_search">
+        <div id="permanent_component">
+            <div id="logo_container">
+                <div id="logo">
+                    <img  src="photo/random-logo-png-transparent.png" alt="">
+                  </div>
+                <div id="social_media">
+                    <div class="social_media"><img class="media_icon" src="/photo/facebook.png" alt=""></div>
+                    <div class="social_media"><img class="media_icon" src="/photo/instagram-symbol.png" alt=""></div>
+                    <div class="social_media"><img class="media_icon" src="/photo/pinterest.png" alt=""></div>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        
+    </header>
+    <main>
+        
+        <form action="/AdminDelivery" id="Shipper_Order_assignment" method="POST">
+            <div id="Form_title" class="field_container">
+                <h1>Shipper - Order Assignment</h1>
+            </div>
+            <div id="form_container">
+                <div class="field_container">
+                    <label class="field_name" for="Order_id">Order id</label>
+                    <input  type="text" id="Order_id" name="Order_id">
+                </div>
+                <div class="field_container">
+                    <label class="field_name" for="Shipper_id">Shipper id</label>
+                    <select name="Shipper_id" id="Shipper_id">
+                        <% for (let i=0; i<Shippers.length; i++) {%>
+                            <option value="<%=Shippers[i]._id %>"><%=Shippers[i].username %></option>
+                        <%}%>
+                    </select>
+                </div>
+    
+                <div class="field_container">
+                    <input id="assignment_button" type="submit" value="Assign">
+                </div>
+            </div>
+        </form>
+        <div id="grid">
+            <table>
+                <tr>
+                    <th>Order Id</th>
+                    <th>Recipient Name</th>
+                    <th>Recipient Address</th>
+                </tr>
+                <% for (let i=0; i<result.length; i++) {%>
+                    <div class="row_container">
+                        <tr class="row" id="<%=result[i]._id %>">
+                            <td class="column result_id">
+                                <div class="break-word">
+                                    <a href="<%= 'http://localhost:3500' + '/Order_detail/'+ result[i]._id %>"><%=result[i]._id %></a>
+                                </div>
+                                
+                            </td>
+                            <td class="column">
+                                <div class="break-word"><%=result[i].recipientName %></div>
+                            </td>
+                            <td class="column">
+                                <div class="break-word"><%=result[i].recipientAddress %></div>
+                            </td>
+                        </tr>
+                    </div>
+                   
+                    
+                <%}%>
+            </table>
+
+        </div>
+
+
+    </main>
+    <footer>
+        <div class="subscriptionDiv">
+            <h4>Sign up for more information?</h4>
+            <form action="">
+                <div class="subscriptionDivInput">
+                    <input type="email" placeholder="Enter your email address here...">
+                    <button type="submit"><i class="fa-solid fa-envelope"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="basicInformation">
+            <div class="detail">
+                <br>
+                Information gonna display here
+            </div>
+            <div class="detail">
+
+                <h3>About Us</h3>
+                <a href="">About Us</a>
+                <a href="">Privacy Policy</a>
+                <a href="">Payment Methods</a>
+
+            </div>
+            <div class="detail">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Email: trungluong0806@gmail.com</li>
+                    <li>Phone: 0909173660</li>
+                    <li>Address: <address>819 488 Swanston 3053 Carlton</address> </li>
+                </ul>
+                
+                
+            </div>
+        </div>
+        <div class="copyRight">
+            <p>Page by Copyright@ by GroupName?</p>
+        </div>
+    </footer>
+    <div id="controller">
+        <div class="controller_icon">
+            <a href="http://localhost:3500/myShipperAccount">
+              <img class="icon" src="/photo/user.png" alt="">
+            </a>
+            
+        </div>
+        <div class="controller_icon">
+            <img class="icon" src="/photo/settings.png" alt="">
+        </div>
+    </div>
+    <script src="/js/shipper_administration.js"></script>
+</body>
+</html>

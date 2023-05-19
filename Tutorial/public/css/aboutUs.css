@@ -1,0 +1,401 @@
+/* RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author: Luong Thanh Trung, Lee Gayeong, Pham Hieu Dat, Le Dang Quang, Nguyen Huynh Trieu Thinh
+  ID: Your student ids: S3679813, s3891958, s3979760, s3977794, s3977756
+  Acknowledgement: Acknowledgement: the images used here were borrowed from other webpages. Their links could be found in the report */
+
+
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    margin-bottom: 20px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+#logo_and_search{
+    width: 100vw;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 10px;
+    display: flex;
+    
+
+}
+
+#permanent_component{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid black;
+    justify-content: center;
+    
+}
+
+#collapsed_content{
+    width: 100vw;
+    height: 50px;
+    display: none;
+}
+
+#product_id_cotainer, #vid{
+    
+    display: none;
+}
+
+
+
+#logo{
+    height: 80px;
+    width: 200px;
+    background-color: white;
+    margin-left: 10px;
+}
+
+#logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#logo_container{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#social_media{
+    height: 80px;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.social_media, .media_icon{
+    height: 20px;
+    width: 20px;
+}
+
+body{
+    background: rgb(212, 212, 212);
+}
+section{
+    width: 80%;
+    margin: 30px auto;
+    background: white;
+}
+
+section .aboutUsHeader{
+    width: 100%;
+    padding: 20px;
+}
+
+section .aboutUsHeader h1{
+    text-align: center;
+    font-size: 35px;
+}
+
+section .teamMember{
+    display: grid;
+    height: fit-content;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    padding: 20px;
+}
+
+section .teamMember .member:first-child{
+    grid-row: 1 / span 3;
+    height: 610px;
+    width: 100%;
+}
+
+
+section .teamMember .member{
+    width: 100%;
+}
+
+section .teamMember .informationContainer{
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.informationContainer .imageContainer{
+    width: 100%;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.informationContainer .imageContainer .images{
+    height: 125px;
+    width: 125px;
+}
+
+
+.informationContainer .images img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   
+    border-radius: 50%
+}
+
+.informationContainer .title{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+
+.informationContainer .description{
+    width: 100%;
+    height: calc(100% - 125px - 50px);
+    text-indent: 20px;
+    font-size: 18px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#controller{
+    min-width: 300px;
+    height: 50px;
+    position: fixed;
+    bottom: 10px;
+    background: linear-gradient(108.5deg, rgb(231, 69, 54) 11.2%, rgb(255, 180, 17) 68%);
+    border-radius: 15px;
+    left: calc((100vw - 300px)/2);
+    display: flex;
+    justify-content: space-around;
+    z-index: 2;
+    
+}
+
+.controller_icon{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon{
+    width: 40px;
+    height: 40px;
+}
+
+
+
+
+
+/*Footer*/
+footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+    background: white;    
+    padding-bottom: 80px;
+}
+
+footer .subscriptionDiv{
+    width: 60%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    color: black;
+    text-transform: capitalize;
+    margin: 0;
+    border-bottom: 1px solid black;
+}
+
+footer .subscriptionDiv .subscriptionDivInput{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+footer .subscriptionDiv .subscriptionDivInput input{
+    height: 35px;
+    width: 250px;
+    border-radius: 15px 0 0 15px;
+    border: 1px solid black;
+    border-right: none;
+    padding-left: 10px;
+    color: black;
+    background: white;
+    box-sizing: border-box;
+    outline: none;
+}
+footer .subscriptionDiv .subscriptionDivInput input::placeholder{
+    color: black;
+}
+footer .subscriptionDiv .subscriptionDivInput button{
+    height: 35px;
+    width: 30px;
+    border: 1px solid black;
+    border-radius: 0 15px 15px 0;
+    color: black;
+    cursor: pointer;
+    background: white;   
+}
+footer .basicInformation{
+    display: flex;
+    width: 60%; 
+    justify-content: space-evenly;
+    align-items:  flex-start;
+}
+
+footer .detail:first-child{
+    font-size: 17px;   
+}
+
+footer .basicInformation img{
+    width: 200px;
+    margin: auto;
+}
+footer .detail{
+    word-wrap: break-word;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+
+footer .detail h3{
+    border-bottom: 1px solid black;
+    margin: 10px 0;
+}
+
+
+footer .detail a{
+    text-decoration: none;
+    color: black;
+    line-height: 38px;
+}
+
+footer .detail ul{
+    list-style-type: none;
+    line-height: 29px;
+}
+
+footer .detail .contactUs {
+    display: flex;
+    flex-direction: column;
+    line-height: 25px;
+}
+
+footer .detail .contactUs h2{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+footer .detail .contactUs h2 a{
+    margin-right: 10px;
+    cursor: pointer;
+    transform: none;
+    font-size: 25px;
+}
+
+footer .detail  a:hover{
+    transform: translateX(5px);
+    text-decoration: underline;
+}
+
+footer .copyRight{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid black;
+    font-size: 16px;
+    padding: 10px;
+}
+/* Footer */
+@media (max-width: 1023px){
+    section{
+        width: 100%;
+    }
+
+    /* Footer */
+    footer .subscriptionDiv{
+        width: 100%;
+    }
+    footer .basicInformation{
+        width: 100%;
+        padding: 0 10px;
+    }
+    footer .copyRight{
+        width: 100%;
+    }
+    /* Footer */
+}
+
+@media (max-width: 767px){
+    section{
+        width: 100%;
+    }
+    section .teamMember {
+        grid-template-columns: auto ;
+    }
+
+    /* Footer */
+    footer .subscriptionDiv{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: 120px;
+    }
+    footer .subscriptionDiv h4{
+        font-size: 19px;
+        padding: 0;
+        margin: 0;
+    }
+
+    footer .basicInformation{
+        padding-top: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    footer .basicInformation p{
+        font-size: 18px;
+    }
+
+    footer .basicInformation h3{
+        font-size: 21px;
+    }
+
+    footer .basicInformation a{
+        font-size: 16px;
+    }
+    /* Footer */
+    
+    }
+

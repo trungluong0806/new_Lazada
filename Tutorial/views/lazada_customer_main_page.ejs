@@ -1,0 +1,267 @@
+<!-- RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author: Luong Thanh Trung, Lee Gayeong, Pham Hieu Dat, Le Dang Quang, Nguyen Huynh Trieu Thinh
+  ID: Your student ids: S3679813, s3891958, s3979760, s3977794, s3977756
+  Acknowledgement: Acknowledgement: the images used here were borrowed from other webpages. Their links could be found in the report  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/lazada_main_page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/6f8d1d8e9d.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <nav id="vertical_navigation">
+        <div class="category">Household Appliances</div>
+                    <div class="category">Electronics</div>
+                    <div class="category">Fashion</div>
+                    <div class="category">For Kids</div>
+                    <div class="category">Groceries</div>
+                    <div class="category">Sport</div>
+                    <div class="category">Automotives</div>
+                    <div class="category">Education</div>
+                    <div class="category">Entertainment</div>
+                    <div class="category">Digital</div>
+                    <div class="category">Adults</div>
+                    <button id="Close">Close</button>
+    </nav>
+
+    <div id="overlay"></div>
+    <div id="main_container">
+        <header id="logo_and_search">
+            <div id="permanent_component">
+                <div id="logo_container">
+                    <div id="logo">
+                        <img  src="photo/random-logo-png-transparent.png" alt="">
+                    </div>
+
+                    <div id="social_media">
+                        <div class="social_media"><img class="media_icon" src="/photo/facebook.png" alt=""></div>
+                        <div class="social_media"><img class="media_icon" src="/photo/instagram-symbol.png" alt=""></div>
+                        <div class="social_media"><img class="media_icon" src="/photo/pinterest.png" alt=""></div>
+                    </div>
+                </div>
+                <div id="search_bar_container">
+                    <form id="search_function" action="/search" method="GET">
+                        <input name="search_bar" id="search_bar" type="text">
+                        <div id="search_container"><input id="search_submit" type="image" src="/photo/search-interface-symbol.png"></div>
+                    </form>
+                </div>
+            </div>
+            <div id="collapsed_content">
+                <div id="search_bar_container_2">
+                    <form id="search_function" action="/search" method="GET">
+                        <input name="search_bar" id="search_bar" type="text">
+                        <div id="search_container"><input id="search_submit" type="image" alt="" src="/photo/search-interface-symbol.png" alt=""></div>
+                    </form>
+                </div>
+            </div>
+            
+            
+        </header>
+        <main>
+            <div id="carousel">
+                <div id="element">
+                    <nav id="catergory_box">
+                        <div class="category">Household Appliances</div>
+                        <div class="category">Electronics</div>
+                        <div class="category">Fashion</div>
+                        <div class="category">For Kids</div>
+                        <div class="category">Groceries</div>
+                        <div class="category">Sport</div>
+                        <div class="category">Automotives</div>
+                        <div class="category">Education</div>
+                        <div class="category">Entertainment</div>
+                        <div class="category">Digital</div>
+                        <div class="category">Adults</div>
+                        
+                    </nav>
+                    <div class="element"></div>
+                </div>
+                <nav id="carousel_nav">
+                    <div class="link_container">
+                    </div>
+                    <div class="link_container"></div>
+                    <div class="link_container"></div>
+                    <div class="link_container"></div>
+                </nav>
+            </div>
+            <div id="product_container" >
+                
+                <div>
+                    <div id="sort"></div>
+                    <div id="products_filter">
+                        <div id="sticky_filter">
+                            <form id="filter" action="/filter" method="GET">
+                                <div>
+                                    <div class="filter_title">Price Filter</div>
+                                    <div id="price_filter">
+                                        <input name="min_price" class="price" type="number" placeholder="Min" value="0">
+                                        <span>&nbsp;-&nbsp;</span>
+                                        <input name="max_price" class="price" type="number" placeholder="Max" value="0">
+                                    </div>
+                                </div>
+                                
+    
+                                <div>
+                                    <div class="filter_title">Location</div>
+                                    <div class="filter_box">
+                                        <%for (let i=0; i < result_loc.length; i++){%>
+                                            <div>
+                                                <input name="product_location" id="product_location" type="checkbox" value="<%= result_loc[i]%>">
+                                                <label for="product_location"><%= result_loc[i]%></label>
+                                            </div>
+                                        <%}%>
+                                </div>
+    
+                                </div>
+    
+    
+                                
+    
+                                <div>
+                                    <div class="filter_title">Brand</div>
+                                    <div class="filter_box">
+                                        <%for (let i=0; i < result_brand.length; i++){%>
+                                            <div>
+                                                <input name="product_brand" type="checkbox" value="<%= result_brand[i]%>" >
+                                                <label for="product_brand"><%= result_brand[i]%></label>
+                                            </div>
+                                        <%}%>
+    
+                                </div>
+    
+                                </div>
+                                
+                                
+                                <div>
+                                    <div class="filter_title">Country of Origin</div>
+                                    <div class="filter_box">
+                                        <%for (let i=0; i < result_CFO.length; i++){%>
+                                            <div>
+                                                <input name="product_CFO" id="product_CFO
+                                                " type="checkbox" value="<%= result_CFO[i]%>">
+                                                <label for="product_CFO"><%= result_CFO[i]%></label>
+                                            </div>
+                                        <%}%>
+    
+                                    </div>
+    
+                                </div>
+                                <div>
+                                    <input id="submit" type="submit" value="Apply">
+                                </div>
+                                
+    
+                            </form>
+                        </div>
+                        
+                        <div id="products">
+                            <%for (let i =0; i < result.length; i++){%>
+                                <div class="grid">
+                                    <div class="product_image">
+                                        <img id="main_image" src="<%= result[i].imagePath %>" alt="">
+                                    </div>
+                                    <div class="product_title">
+                                        <a href="<%= 'http://localhost:3500' + '/'+ result[i]._id %>"><%= result[i].productName %></a>
+                                        
+                                    </div>
+                                    <div class="product_price">
+                                        <%= result[i].productPrice %>
+                                    </div>
+                                </div>
+                                
+                            <%}%>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                </div>
+               
+            </div>
+            
+            
+        </main>
+        <footer>
+            <div class="subscriptionDiv">
+                <h4>Sign up for more information?</h4>
+                <form action="">
+                    <div class="subscriptionDivInput">
+                        <input type="email" placeholder="Enter your email address here...">
+                        <button type="submit"><i class="fa-solid fa-envelope"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="basicInformation">
+                <div class="detail">
+    
+                    <h3>About Us</h3>
+                    <a href="/aboutUs"></a>
+                    <a href="">Privacy Policy</a>
+                    <a href="">Payment Methods</a>
+    
+                </div>
+                <div class="detail">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: trungluong0806@gmail.com</li>
+                        <li>Phone: 0909173660</li>
+                        <li>Address: <address>819 488 Swanston 3053 Carlton</address> </li>
+                    </ul>
+                    
+                    
+                </div>
+            </div>
+            <div class="copyRight">
+                <p>Page by Copyright@ by GroupName?</p>
+            </div>
+        </footer>
+        <div id="controller">
+            <div class="controller_icon" id="cart">
+                <a href='http://localhost:3500'>
+                    <div id="number_in_cart"></div>
+                    <img class="icon"  src="/photo/shopping-cart.png" alt="">
+                </a>
+            </div>
+            <div class="controller_icon">
+                <a href="http://localhost:3500">
+                    <img class="icon" src="/photo/user.png" alt="">
+                </a>
+                
+            </div>
+            <div class="controller_icon">
+                <img class="icon" src="/photo/settings.png" alt="">
+            </div>
+            <div class="controller_icon" id="menu_icon_box">
+                <img class="icon" id="menu_icon" src="/photo/menu-bar.png" alt="">
+            </div>
+            <div class="controller_icon" id="search_icon_box">
+                <img class="icon" id="search_icon" src="/photo/search-interface-symbol.png" alt="">
+            </div>
+
+            
+        </div>
+    </div>
+    
+    <script src="js/main_page.js">
+
+    </script>
+</body>
+</html>

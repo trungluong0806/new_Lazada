@@ -1,0 +1,116 @@
+    <!-- RMIT University Vietnam
+  Course: COSC2430 Web Programming
+  Semester: 2023A
+  Assessment: Assignment 2
+  Author: Luong Thanh Trung, Lee Gayeong, Pham Hieu Dat, Le Dang Quang, Nguyen Huynh Trieu Thinh
+  ID: Your student ids: S3679813, s3891958, s3979760, s3977794, s3977756
+  Acknowledgement: Acknowledgement: the images used here were borrowed from other webpages. Their links could be found in the report  -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://kit.fontawesome.com/6f8d1d8e9d.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/Order_detail.css">
+    </head>
+    <body>
+        
+        <header id="logo_and_search">
+            <div id="permanent_component">
+                <div id="logo_container">
+                    <div id="logo"> </div>
+                    <div id="social_media">
+                        <div class="social_media"><img class="media_icon" src="/photo/facebook.png" alt=""></div>
+                        <div class="social_media"><img class="media_icon" src="/photo/instagram-symbol.png" alt=""></div>
+                        <div class="social_media"><img class="media_icon" src="/photo/pinterest.png" alt=""></div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            
+            
+        </header>
+        <main>
+            <div id="Order_information">
+                <form action="/Order_detail" id="Specific_Detail" method="POST">
+                    <div id="Form_title">
+                        <h1>
+                            Order Detail
+                        </h1>
+                    </div>
+                    <div>
+                        <label for="Order_id">Order Id</label>
+                        <input type="text" value="<%= Orders._id %>" name="Order_id" id="Order_id">  
+                    </div>
+                    <div>
+                        <label for="recipient_name">Customer Name</label>
+                        <input type="text" id="recipient_name" value="<%=Orders.recipientName %>" disabled>
+                    </div>
+
+                    <div>
+                        <label for="recipient_address">Customer Address</label>
+                        <input type="text" id="recipient_address" value="<%= Orders.recipientAddress %>" disabled>
+                    </div>
+
+                    <div>
+                        <label for="recipient_phone_number">Phone Number</label>
+                        <input type="text" id="recipient_phone_number" value="<%= Orders.recipientPhone %>" disabled>
+                    </div>
+
+                    <div>
+                        <label for="total_price">Total Price</label>
+                        <input type="text" id="total_price" value="<%= Orders.totalPrice %>" disabled>
+                    </div>
+
+                    <div>
+                        <label for="status">Delivery Status</label>
+                        <select name="status" id="status">
+                            <option value="Active">Active</option>
+                            <option value="Assinged">Assigned</option>
+                            <option value="Delivered">Delivered</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="submit" value="update">
+                    </div>
+                    
+                    
+                    
+                    
+                
+
+                </form>
+            </div>
+            <table id="product_detail">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                </tr>
+                <% for (let i=0; i<details.length; i++) { %>
+                    <tr>
+                        <td><%= details[i].productName %></td>
+                        <td><%= details[i].productQuantity %></td>
+                    </tr>
+
+                <%}%>
+            </table>
+        </main>
+        
+        <footer></footer>
+        <div id="controller">
+            <div class="controller_icon">
+                <a href="http://localhost:3500/myShipperAccount">
+                <img class="icon" src="/photo/user.png" alt="">
+                </a>
+                
+            </div>
+            <div class="controller_icon">
+                <img class="icon" src="/photo/settings.png" alt="">
+            </div>
+        </div>
+        
+    </body>
+    </html>
