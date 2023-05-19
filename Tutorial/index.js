@@ -15,6 +15,7 @@ const multer = require('multer');
 const session = require('express-session')
 var bodyParser = require('body-parser')
 const bcrypt = require("bcrypt")
+const PORT = process.env.PORT || 3500
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'public/photo/');
@@ -28,7 +29,7 @@ const upload = multer({ storage: storage });
 app.use(express.urlencoded({ extended: true }));
 app.use('/photo', express.static('public/photo')); 
 
-app.listen(3500, function (err) {
+app.listen(PORT, function (err) {
     if (err) console.log(err);
     console.log("Server listening on PORT 3500");
 });
